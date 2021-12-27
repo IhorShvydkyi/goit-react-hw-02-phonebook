@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { FormStyled, Label, Input, AddButton } from "./Form.styled";
 
 class Form extends Component {
   state = {
@@ -34,10 +35,10 @@ class Form extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleAddContact}>
-        <label htmlFor={this.inputNameId}>
+      <FormStyled onSubmit={this.handleAddContact}>
+        <Label htmlFor={this.inputNameId}>
           Name
-          <input
+          <Input
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -47,10 +48,10 @@ class Form extends Component {
             id={this.inputNameId}
             onChange={this.handleInputChange}
           />
-        </label>
-        <label htmlFor={this.inputNumberId}>
+        </Label>
+        <Label htmlFor={this.inputNumberId}>
           Number
-          <input
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -60,10 +61,10 @@ class Form extends Component {
             id={this.inputNumberId}
             onChange={this.handleInputChange}
           />
-        </label>
+        </Label>
 
-        <button type="submit">Add to contacts</button>
-      </form>
+        <AddButton type="submit">Add to contacts</AddButton>
+      </FormStyled>
     );
   }
 }

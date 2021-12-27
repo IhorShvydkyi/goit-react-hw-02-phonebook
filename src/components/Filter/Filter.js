@@ -1,19 +1,20 @@
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
+import { FilterStyled, Label, Input } from "./Filter.styled";
 
 function Filter({ onChange, value }) {
   const filterInputId = uuidv4();
   return (
-    <div>
-      <label htmlFor={filterInputId}>Find contact by the name</label>
-      <input
+    <FilterStyled>
+      <Label htmlFor={filterInputId}>Find contact by the name</Label>
+      <Input
         type="text"
         name="filter"
         value={value}
         id={filterInputId}
         onChange={onChange}
       />
-    </div>
+    </FilterStyled>
   );
 }
 
