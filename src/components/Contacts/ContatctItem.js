@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import { ContactItemStyled, Number, DeleteBtn } from "./ContatctItem.styled";
 
-function ContactItem({ name, number, id, toDeleteContact }) {
+function ContactItem({ name, number, id, onDeleteContact }) {
   return (
     <ContactItemStyled>
       {name}: <Number>{number}</Number>
       <DeleteBtn
         onClick={() => {
-          toDeleteContact(id);
+          onDeleteContact(id);
         }}
         type="button"
       >
@@ -22,5 +22,5 @@ ContactItem.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   number: PropTypes.string,
-  toDeleteContact: PropTypes.func,
+  onDeleteContact: PropTypes.func,
 };
